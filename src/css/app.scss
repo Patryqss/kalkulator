@@ -1,1 +1,17 @@
 // app global css in SCSS form
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.q-toggle__inner--truthy .q-toggle__track {
+  opacity: 1 !important;
+}
+
+.q-toggle__inner--truthy .q-toggle__thumb {
+  color: white;
+}
+
+.q-item__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+}

@@ -1,0 +1,19 @@
+repos:
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.43.0
+    hooks:
+      - id: terraform_fmt
+        name: terraform_fmt
+        files: ^cloud
+  - repo: https://github.com/prettier/prettier
+    rev: 2.1.1
+    hooks:
+      - id: prettier
+        files: ^src
+        args: [--write, --single-quote, --print-width=100]
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v7.8.1
+    hooks:
+      - id: eslint
+        files: ^src
+        args: ['src/**/*.{js,vue}', --fix, --config=.eslintrc.js]
