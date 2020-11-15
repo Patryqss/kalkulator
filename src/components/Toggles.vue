@@ -5,7 +5,7 @@
     </div>
     <div class="toggles q-gutter-sm">
       <div class="row">
-        <div class="info col-7">Czy jesteś podatnikiem VAT?</div>
+        <div class="info col-8">Czy jesteś podatnikiem VAT?</div>
         <q-toggle
           v-model="togglesValues.vat.status"
           class="col-1"
@@ -14,7 +14,7 @@
         />
       </div>
       <div class="row">
-        <div class="info col-7">Czy jesteś płatnikiem ZUS?</div>
+        <div class="info col-8">Czy jesteś płatnikiem ZUS?</div>
         <q-toggle
           v-model="togglesValues.zus.status"
           class="col-1"
@@ -23,7 +23,7 @@
         />
       </div>
       <div class="row">
-        <div class="info col-7">
+        <div class="info col-8">
           Czy chcesz uwzględnić rozliczenie roczne w opłacie miesięcznej?
         </div>
         <q-toggle
@@ -34,7 +34,14 @@
         />
       </div>
       <div class="row">
-        <div class="info col-7">Czy chcesz, abyśmy wystawiali Twoje faktury sprzedaży?</div>
+        <div class="info col-7">
+          <span>Czy chcesz, abyśmy wystawiali Twoje faktury sprzedaży?</span>
+        </div>
+        <div class="col-1">
+          <InfoMark
+            description="Opłata miesięczna obejmująca wystawienie jednej faktury. Każda kolejna +7zł"
+          />
+        </div>
         <q-toggle
           v-model="togglesValues.sell_service.status"
           class="col-1"
@@ -44,6 +51,11 @@
       </div>
       <div class="row">
         <div class="info col-7">Czy chcesz mieć prowadzoną obsługę kadrowo-płacową?</div>
+        <div class="col-1">
+          <InfoMark
+            description="Opłata obejmuje dostęp do modułu kadrowo-płacowego. Obsługa każdej umowy płatna odrębnie wg cennika."
+          />
+        </div>
         <q-toggle
           v-model="togglesValues.hr.status"
           class="col-1"
@@ -53,6 +65,11 @@
       </div>
       <div class="row">
         <div class="info col-7">Czy prowadzisz gospodarkę magazynową?</div>
+        <div class="col-1">
+          <InfoMark
+            description="Opłata obejmuje dostęp do modułu magazynowego. Obsługa płatna odrębnie wg cennika."
+          />
+        </div>
         <q-toggle
           v-model="togglesValues.store.status"
           class="col-1"
@@ -62,6 +79,11 @@
       </div>
       <div class="row">
         <div class="info col-7">Czy chcesz skorzystać z oferty rabatowej "Klient online 1.0"?</div>
+        <div class="col-1">
+          <InfoMark
+            description="Klient samodzielnie pobiera informacje o kwotach zobowiązań podatkowych i ZUS z systemu."
+          />
+        </div>
         <q-toggle
           v-model="togglesValues.sale.status"
           class="col-1"
@@ -74,8 +96,13 @@
 </template>
 
 <script>
+import InfoMark from './InfoMark';
+
 export default {
   name: 'Toggles',
+  components: {
+    InfoMark,
+  },
   props: {
     chosen_evidence_type: {
       required: true,
@@ -85,13 +112,13 @@ export default {
   data() {
     return {
       togglesValues: {
-        vat: { status: false, values: [15, 25, 25] },
-        zus: { status: false, values: [20, 10, 10] },
-        pit: { status: false, values: [3.33, 3.33, 3.33] },
-        sell_service: { status: false, values: [15, 15, 15] },
-        hr: { status: false, values: [10, 10, 10] },
-        store: { status: false, values: [15, 15, 15] },
-        sale: { status: false, values: [-16.26, -16.26, -16.26] },
+        vat: { status: false, values: [25, 25] },
+        zus: { status: false, values: [10, 10] },
+        pit: { status: false, values: [3.96, 5.54] },
+        sell_service: { status: false, values: [15, 15] },
+        hr: { status: false, values: [10, 10] },
+        store: { status: false, values: [15, 15] },
+        sale: { status: true, values: [-16.26, -16.26] },
       },
     };
   },
@@ -103,6 +130,9 @@ export default {
           sum += this.togglesValues[el].values[this.chosen_evidence_type];
       });
       return sum;
+    },
+    isVatActive() {
+      return this.togglesValues.vat.status;
     },
   },
 };
