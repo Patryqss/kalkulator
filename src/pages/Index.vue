@@ -46,7 +46,7 @@
         />
       </div>
       <div class="sum">
-        <div>Wartość usług ryczałtowych: {{ lump_sum }}zł</div>
+        <div>Wartość usług ryczałtowych: {{ lump_sum.toFixed(2) }}zł</div>
         <q-separator color="secondary" />
         <q-separator color="secondary" />
         <div class="closure">
@@ -66,10 +66,12 @@
           @input="calc_total_amount"
         />
       </div>
-      <div class="sum">
-        <div>Wartość usługi księgowej z uwzględnieniem ilości wpisów: {{ total_sum }}zł</div>
-        <q-separator color="secondary" />
-        <q-separator color="secondary" />
+      <div class="sum black">
+        <div>
+          Wartość usługi księgowej z uwzględnieniem ilości wpisów: {{ total_sum.toFixed(2) }}zł
+        </div>
+        <q-separator color="black" />
+        <q-separator color="black" />
       </div>
       <div class="closure">
         Powyższy kalkulator ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu
@@ -89,7 +91,7 @@ export default {
   },
   data() {
     return {
-      pro_digitals: [1, 10, 30],
+      pro_digitals: [0, 10, 30],
       chosen_pro_digital: 0,
       evidence_types: [
         { label: 'Ewidencja przychodów', base_amount: [100, 120, 160] },
@@ -151,7 +153,7 @@ export default {
   }
   .select,
   .digitals {
-    width: 95%;
+    width: 90%;
     font-weight: 600;
     font-size: 16px;
     margin: 20px auto;
@@ -165,16 +167,19 @@ export default {
   }
   .title,
   .sum {
-    width: 95%;
-    color: orange;
+    width: 90%;
+    color: rgb(255, 136, 0);
     font-weight: 600;
+  }
+  .black {
+    color: black;
   }
   .title {
     margin: 0 auto;
     font-size: 20px;
   }
   .slider {
-    width: 95%;
+    width: 90%;
     margin: 40px auto;
     .invoices-question {
       margin-left: 30px;
@@ -191,7 +196,7 @@ export default {
     margin-right: 5px;
   }
   .toggles {
-    width: 95%;
+    width: 90%;
     margin: 30px auto 0 auto;
   }
 }

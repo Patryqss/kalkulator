@@ -39,7 +39,7 @@
         </div>
         <div class="col-1">
           <InfoMark
-            description="Opłata miesięczna obejmująca wystawienie jednej faktury. Każda kolejna +7zł"
+            description="Opłata miesięczna obejmująca wystawienie jednej faktury. Każda kolejna +7.50zł"
           />
         </div>
         <q-toggle
