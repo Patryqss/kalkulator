@@ -15,3 +15,13 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
 }
+
+@media (max-width: 500px) {
+  .q-btn__content,
+  .selector {
+    font-size: 10px;
+  }
+  .selector {
+    width: 80% !important;
+  }
+}

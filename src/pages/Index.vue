@@ -9,7 +9,7 @@
         <q-separator color="secondary" />
       </div>
       <div class="digitals q-gutter-sm">
-        Wybierz wariant usługi:
+        Wybierz pakiet:
         <br />
         <q-btn-toggle
           v-model="chosen_pro_digital"
@@ -27,7 +27,7 @@
         />
       </div>
       <div class="select q-gutter-sm">
-        Wybierz formę ewidencji:
+        Wybierz rodzaj prowadzonej ewidencji:
         <br />
         <q-select
           class="selector"
@@ -50,11 +50,11 @@
         <q-separator color="secondary" />
         <q-separator color="secondary" />
         <div class="closure">
-          Opłata zawiera wartość wpisów w ewidencji do kwoty {{ included_invoices_sum }}zł
+          Opłata ryczałtowa uwzględnia wpisy w ewidencji o wartości {{ included_invoices_sum }}zł
         </div>
       </div>
       <div class="slider row">
-        <div class="col-7 invoices-question">Ile masz średnio zapisów w ewidencji podatkowej?</div>
+        <div class="col-7 invoices-question">Ile masz wpisów (pozycji) w ewidencji podatkowej?</div>
         <q-slider
           v-model="invoices"
           class="col-3"
@@ -68,14 +68,23 @@
       </div>
       <div class="sum black">
         <div>
-          Wartość usługi księgowej z uwzględnieniem ilości wpisów: {{ total_sum.toFixed(2) }}zł
+          Wartość usług ryczałtowych z uwzględnieniem ilości wpisów: {{ total_sum.toFixed(2) }}zł
         </div>
         <q-separator color="black" />
         <q-separator color="black" />
       </div>
       <div class="closure">
-        Powyższy kalkulator ma charakter informacyjny i nie stanowi oferty handlowej w rozumieniu
-        art. 66 §1 Kodeksu Cywilnego.
+        <ol>
+          <li>
+            Kalkulator przedstawia szacunkową wartość opłat ryczałtowych z uwzględnieniem ilości
+            wpisów do ewidencji i wybraną - ale nie kompletną - konfiguracją usług dodatkowych.
+          </li>
+          <li>
+            Zaprezentowana wartość usług ma charakter jedynie informacyjny. Przedstawia koncepcję
+            modelu kalkulowania ceny i nie stanowi oferty handlowej w rozumieniu art. 66 §1 Kodeksu
+            Cywilnego.
+          </li>
+        </ol>
       </div>
     </q-card>
   </q-page>
@@ -163,6 +172,9 @@ export default {
     }
     .digital {
       margin-left: 30px;
+      @media (max-width: 500px) {
+        margin-left: 10px;
+      }
     }
   }
   .title,
@@ -192,8 +204,7 @@ export default {
   .closure {
     color: grey;
     font-size: 10px;
-    text-align: end;
-    margin-right: 5px;
+    margin-right: 30px;
   }
   .toggles {
     width: 90%;

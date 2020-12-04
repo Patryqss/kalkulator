@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title" @click="getTotalValue">
-      Odpowiedz na poniższe pytania, aby poznać wartość usługi
+      Odpowiedz na poniższe pytania, aby skonfigurować usługę
     </div>
     <div class="toggles q-gutter-sm">
       <div class="row">
@@ -39,7 +39,7 @@
         </div>
         <div class="col-1">
           <InfoMark
-            description="Opłata miesięczna obejmująca wystawienie jednej faktury. Każda kolejna +7.50zł"
+            description="Opłata miesięczna obejmuje wystawienie jednej faktury. Każda kolejna +7.50zł"
           />
         </div>
         <q-toggle
@@ -67,7 +67,7 @@
         <div class="info col-7">Czy prowadzisz gospodarkę magazynową?</div>
         <div class="col-1">
           <InfoMark
-            description="Opłata obejmuje dostęp do modułu magazynowego. Obsługa płatna odrębnie wg cennika."
+            description="Opłata obejmuje dostęp do modułu magazynowego. Obsługa dokumentów magazynowych płatna odrębnie według cennika."
           />
         </div>
         <q-toggle
