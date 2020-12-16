@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <q-card class="page-container">
-      <img src="../../public/logo_calc.png" alt="logo" class="logo" />
+      <img src="../../public/logo.svg" alt="logo" class="logo" />
       <div class="title">
         <div>Kalkulator Usług Księgowych</div>
         <q-separator color="secondary" />
@@ -158,7 +158,7 @@ export default {
   background-color: white;
   .logo {
     width: 200px;
-    margin: 0 auto;
+    margin: 10px auto;
   }
   .select,
   .digitals {
